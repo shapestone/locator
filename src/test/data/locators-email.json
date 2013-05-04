@@ -1,0 +1,11 @@
+[
+    {
+        "partyId":"1231231241",
+        "type": {
+            "name":"Personal"
+        },
+        "email": {
+            "address":"michaaelw@yahoo.com"
+        }
+    }
+]

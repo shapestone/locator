@@ -1,0 +1,53 @@
+[
+{
+    "partyId":"1231231241",
+    "type": {
+        "name":"Home"
+    },
+    "site": {
+        "number":"",
+        "floor":"",
+        "type": {
+            "name":"Apartment"
+        },
+        "location":{
+            "types":["street","city", "state", "country", "zip"],
+            "values":["1234 My Own Street", "The Big City", "State of mind", "Oz", "99111"]
+        }
+    }
+},
+{
+    "partyId":"1231231242",
+    "type": {
+        "name":"Home"
+    },
+    "site": {
+        "number":"303",
+        "floor":"3",
+        "type": {
+            "name":"Apartment"
+        },
+        "location":{
+            "types":["street","city", "state", "country", "zip"],
+            "values":["1234 My Own Street", "The Big City", "State of mind", "Oz", "99111"]
+        }
+    }
+},
+{
+    "partyId":"1231231243",
+    "type": {
+        "name":"Work"
+    },
+    "site": {
+        "number":"3121",
+        "floor":"3",
+        "type": {
+            "name":"Apartment"
+        },
+        "location":{
+            "types":["street","city", "state", "country", "zip"],
+            "values":["12 Sand Street", "Ocean Front", "Beach", "Ice Land", "99111"]
+        }
+    }
+}
+]

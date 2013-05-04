@@ -1,0 +1,13 @@
+[
+    {
+        "partyId":"1231231241",
+        "type": {
+            "name":"Work"
+        },
+        "phone": {
+            "number":"3105551212",
+            "type": {
+                "name":"Mobile"
+            }        }
+    }
+]

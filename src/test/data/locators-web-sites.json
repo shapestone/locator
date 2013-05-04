@@ -1,0 +1,11 @@
+[
+    {
+        "partyId":"1231231241",
+        "type": {
+            "name":"Company Web Site"
+        },
+        "webSite": {
+            "url":"http://www.news.com"
+        }
+    }
+]
