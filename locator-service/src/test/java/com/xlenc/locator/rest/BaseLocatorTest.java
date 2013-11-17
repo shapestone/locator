@@ -1,4 +1,4 @@
-package test.java.com.xlenc.locator.rest;
+package com.xlenc.locator.rest;
 
 import java.lang.reflect.Field;
 

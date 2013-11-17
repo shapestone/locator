@@ -1,5 +1,6 @@
-package test.java.com.xlenc.locator.rest;
+package com.xlenc.locator.rest;
 
+import com.xlenc.locator.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,7 +19,7 @@ import static org.testng.Assert.assertNotNull;
  * Date: 12/15/12
  * Time: 8:49 AM
  */
-public class LocatorResourceTest extends BaseLocatorTest {
+public class LocatorResourceTest extends com.xlenc.locator.rest.BaseLocatorTest {
 
     private LocatorPersistence locatorPersistence;
 
@@ -52,8 +53,9 @@ public class LocatorResourceTest extends BaseLocatorTest {
     }
 
     private LocatorResource createLocatorResource(final LocatorPersistence locatorPersistence) {
-        final LocatorResource locatorResource = new LocatorResource();
-        final LocatorService locatorService = new LocatorServiceImpl();
+
+        final LocatorService locatorService = new LocatorServiceImpl(locatorPersistence);
+        final LocatorResource locatorResource = new LocatorResource(locatorService);
         setPrivateField(locatorResource, "locatorService", locatorService);
         setPrivateField(locatorService, "locatorPersistence", locatorPersistence);
         return locatorResource;
