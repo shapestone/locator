@@ -5,13 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xlenc.locator</groupId>
-    <artifactId>locator</artifactId>
+    <artifactId>locator-api</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>locator-api</module>
-        <module>locator-service</module>
-    </modules>
 
 </project>
