@@ -1,0 +1,10 @@
+mongoDatabase:
+  host: localhost
+  port: 27017
+  databaseName: locator-db
+
+http:
+  port: 9010
+  adminPort: 9011
+  minThreads: 8
+  maxThreads: 1024
