@@ -1,12 +1,8 @@
-package com.xlenc.locator.rest;
+package com.xlenc.locator;
 
-import com.xlenc.locator.EmailStateImpl;
-import com.xlenc.locator.LocatorService;
-import com.xlenc.locator.LocatorStateImpl;
-import com.xlenc.locator.PhoneStateImpl;
-import com.xlenc.locator.PostalStateImpl;
-import com.xlenc.locator.WebSiteStateImpl;
 import com.xlenc.locator.api.LocatorState;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -28,6 +24,7 @@ import static javax.ws.rs.core.Response.Status.OK;
 @Path("/locators")
 public class LocatorResource {
 
+    private Logger log = LoggerFactory.getLogger(LocatorResource.class.getName());
     private LocatorService locatorService;
 
     public LocatorResource(LocatorService locatorService) {
@@ -35,7 +32,7 @@ public class LocatorResource {
     }
 
     @POST
-    @Path("/sites")
+    @Path("/site-locators")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addSite(PostalStateImpl postalLocatorState) {
@@ -45,7 +42,7 @@ public class LocatorResource {
     }
 
     @GET
-    @Path("/sites/{id}")
+    @Path("/site-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response readSite(@PathParam("id") String id) {
@@ -60,7 +57,7 @@ public class LocatorResource {
     }
 
     @DELETE
-    @Path("/sites/{id}")
+    @Path("/site-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteSite(@PathParam("id") String id) {
@@ -73,7 +70,7 @@ public class LocatorResource {
     }
 
     @POST
-    @Path("/phones")
+    @Path("/phone-locators")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addPhone(PhoneStateImpl phoneLocatorState) {
@@ -83,7 +80,7 @@ public class LocatorResource {
     }
 
     @GET
-    @Path("/phones/{id}")
+    @Path("/phone-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response readPhone(@PathParam("id") String id) {
@@ -98,7 +95,7 @@ public class LocatorResource {
     }
 
     @DELETE
-    @Path("/phones/{id}")
+    @Path("/phone-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response deletePhone(@PathParam("id") String id) {
@@ -111,7 +108,7 @@ public class LocatorResource {
     }
 
     @POST
-    @Path("/web-sites")
+    @Path("/web-site-locators")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addWebSite(WebSiteStateImpl webSiteState) {
@@ -121,7 +118,7 @@ public class LocatorResource {
     }
 
     @GET
-    @Path("/web-sites/{id}")
+    @Path("/web-site-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response readWebSite(@PathParam("id") String id) {
@@ -136,7 +133,7 @@ public class LocatorResource {
     }
 
     @DELETE
-    @Path("/web-sites/{id}")
+    @Path("/web-site-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteWebSite(@PathParam("id") String id) {
@@ -148,17 +145,18 @@ public class LocatorResource {
     }
 
     @POST
-    @Path("/emails")
+    @Path("/email-locators")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addEmail(EmailStateImpl emailState) {
+        log.debug(emailState.toString());
         final LocatorState locatorState = locatorService.add(emailState);
         final Map<String, Object> map = singletonMap("id", (Object) locatorState.getId());
         return Response.ok().status(CREATED).entity(map).build();
     }
 
     @GET
-    @Path("/emails/{id}")
+    @Path("/email-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEmail(@PathParam("id") String id) {
@@ -173,7 +171,7 @@ public class LocatorResource {
     }
 
     @DELETE
-    @Path("/emails/{id}")
+    @Path("/email-locators/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteEmail(@PathParam("id") String id) {

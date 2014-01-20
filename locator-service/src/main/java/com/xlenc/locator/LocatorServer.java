@@ -1,9 +1,9 @@
 package com.xlenc.locator;
 
+import com.fasterxml.jackson.core.Version;
 import com.google.code.morphia.Morphia;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
-import com.xlenc.locator.rest.LocatorResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
@@ -13,10 +13,15 @@ import com.yammer.dropwizard.config.Environment;
  * Date: 11/16/13
  * Time: 11:59 PM
  */
-public class LocatorRestService extends Service<LocatorServiceConfiguration> {
+public class LocatorServer extends Service<LocatorServiceConfiguration> {
 
     @Override
     public void initialize(Bootstrap<LocatorServiceConfiguration> bootstrap) {
+        bootstrap.setName("Party Rest Service");
+        final String name = "PartyCustomModule";
+        final Version snapshot = new Version(1, 0, 0, "SNAPSHOT", "com.xlenc.locator", "locator-service");
+        final LocatorCustomModule partyCustomModule = new LocatorCustomModule(name, snapshot);
+        bootstrap.getObjectMapperFactory().registerModule(partyCustomModule);
     }
 
     @Override
@@ -44,7 +49,7 @@ public class LocatorRestService extends Service<LocatorServiceConfiguration> {
     }
 
     public static void main(String[] args) throws Exception {
-        new LocatorRestService().run(args);
+        new LocatorServer().run(args);
     }
 
 }

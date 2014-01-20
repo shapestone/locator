@@ -24,7 +24,7 @@ public  @Data class LocatorStateImpl implements LocatorState {
     @Property("partyId")
     private String partyId;
     @Embedded("type")
-    private LocatorTypeState locatorTypeState;
+    private LocatorTypeState locatorType;
     @Property("firstUsedDate")
     private Date firstUsedDate;
     @Property("lastUsedDate")

@@ -13,7 +13,7 @@ public interface LocatorState {
 
     String getPartyId();
 
-    LocatorTypeState getLocatorTypeState();
+    LocatorTypeState getLocatorType();
 
     java.util.Date getFirstUsedDate();
 
@@ -29,7 +29,7 @@ public interface LocatorState {
 
     void setPartyId(String partyId);
 
-    void setLocatorTypeState(LocatorTypeState locatorTypeState);
+    void setLocatorType(LocatorTypeState locatorTypeState);
 
     void setFirstUsedDate(Date firstUsedDate);
 
